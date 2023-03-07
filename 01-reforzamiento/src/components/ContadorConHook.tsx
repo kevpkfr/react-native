@@ -1,18 +1,14 @@
 //import React, { useState } from 'react'
 
-import { useState } from 'react';
+import { useCounter } from '../hooks/useCounter';
 
-export const Contador = () => {
+export const ContadorConHook = () => {
 
-  const [valor, setValor] = useState(10)
-
-  const acumular = ( numero: number) => {
-    setValor( valor + numero);
-
-  }
+  const { valor, acumular }= useCounter(100);
+ 
   return (
     <>
-    <h3>Contador :<small>{ valor }</small></h3>
+    <h3>Contador con hook :<small>{ valor }</small></h3>
 
     <button className='btn btn-primary' onClick={ () => acumular(1)}>
       +1
